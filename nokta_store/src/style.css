@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+input, select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #7c3aed;
+}
