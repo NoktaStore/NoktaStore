@@ -1,1 +1,1 @@
-// Aquí irá el código JS si se necesita
+// Código JS futuro

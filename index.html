@@ -4,59 +4,121 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nokta Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-      body {
+      html, body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: black url('https://i.imgur.com/3oKIeRH.png') repeat;
+        padding: 0;
+        font-family: 'Press Start 2P', cursive;
+        background: black;
+        overflow-x: hidden;
         color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-        padding: 40px 20px;
       }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
+
+      canvas#stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
       }
-      .product {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid #333;
-        border-radius: 12px;
-        padding: 20px;
-        width: 300px;
+
+      .container {
         text-align: center;
-        box-shadow: 0 0 10px #ffffff10;
+        padding: 100px 20px 60px;
       }
-      .product h2 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+
+      h1 {
+        font-size: 20px;
+        margin-bottom: 40px;
       }
-      .product p {
-        margin: 10px 0;
+
+      .info {
+        font-size: 12px;
+        line-height: 2;
+        max-width: 500px;
+        margin: 0 auto 40px;
+        color: #f1f1f1;
       }
-      .btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background: #5865f2;
+
+      .info span {
+        display: block;
+        margin-top: 20px;
+      }
+
+      .btn-discord {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 20px;
+        font-size: 12px;
+        background-color: #5865F2;
+        border: none;
         color: white;
-        text-decoration: none;
         border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
         transition: background 0.3s;
       }
-      .btn:hover {
-        background: #4752c4;
+
+      .btn-discord:hover {
+        background-color: #4752c4;
+      }
+
+      .btn-discord img {
+        height: 20px;
+        margin-right: 10px;
       }
     </style>
   </head>
   <body>
-    <h1>🛒 Nokta Store</h1>
-    <div class="product">
-      <h2>⚔️ Cuenta MCFA - $5</h2>
-      <p>✅ Cambia skin, correo y nombre</p>
-      <a class="btn" href="https://discord.gg/4QcVkN8gqP" target="_blank">Comprar por Discord</a>
+    <canvas id="stars"></canvas>
+
+    <div class="container">
+      <h1>¿QUE CONTIENE?</h1>
+      <div class="info">
+        Minecraft Java & Bedrock PERMANENTE (29.99$)<br>
+        Cambio de Nick DISPONIBLE<br>
+        Compra Garantizada y Segura.
+        <span>ADQUIÉRELA EN:</span>
+      </div>
+      <a class="btn-discord" href="https://discord.gg/4QcVkN8gqP" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Logo" />
+        Discord Ticket
+      </a>
     </div>
+
+    <script>
+      const canvas = document.getElementById('stars');
+      const ctx = canvas.getContext('2d');
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      const stars = Array.from({ length: 120 }).map(() => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.5,
+        dx: (Math.random() - 0.5) * 0.2,
+        dy: (Math.random() - 0.5) * 0.2
+      }));
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = "white";
+        stars.forEach(star => {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fill();
+          star.x += star.dx;
+          star.y += star.dy;
+          if (star.x < 0 || star.x > width) star.dx *= -1;
+          if (star.y < 0 || star.y > height) star.dy *= -1;
+        });
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
   </body>
 </html>

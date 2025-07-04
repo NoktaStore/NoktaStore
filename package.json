@@ -1,7 +1,6 @@
 {
   "name": "nokta-store",
   "version": "1.0.0",
-  "description": "Tienda de cuentas Minecraft",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
