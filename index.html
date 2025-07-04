@@ -1,13 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nokta Store</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: black url('https://i.imgur.com/3oKIeRH.png') repeat;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+      .product {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 0 10px #ffffff10;
+      }
+      .product h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .product p {
+        margin: 10px 0;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: #5865f2;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+      }
+      .btn:hover {
+        background: #4752c4;
+      }
+    </style>
   </head>
   <body>
-    <h1>Bienvenido a Nokta Store</h1>
-    <p>Tienda de cuentas de Minecraft.</p>
+    <h1>🛒 Nokta Store</h1>
+    <div class="product">
+      <h2>⚔️ Cuenta MCFA - $5</h2>
+      <p>✅ Cambia skin, correo y nombre</p>
+      <a class="btn" href="https://discord.gg/4QcVkN8gqP" target="_blank">Comprar por Discord</a>
+    </div>
   </body>
 </html>
